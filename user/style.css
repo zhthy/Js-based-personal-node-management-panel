@@ -1,0 +1,119 @@
+/* style.css */
+
+html, body {
+    height: 100%; /* 确保背景图片覆盖整个页面 */
+    margin: 0;
+    padding: 0;
+    /* overflow: hidden; 禁止全局滚动条出现 */
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    background: url("https://img2.imgtp.com/2024/05/12/LrbrMs76.png") no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif; /* 添加默认字体 */
+    display: flex; /* 使用 flexbox 使内容居中 */
+    justify-content: center;
+    align-items: center;
+    overflow: auto; /* 允许滚动 */
+}
+
+.qrcode-container {
+    margin-bottom: 20px;
+}
+
+button {
+    margin: 10px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* 添加过渡效果 */
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+p {
+    margin: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+input[type="file"] {
+    /* 隐藏原生文件选择按钮 */
+    display: none;
+}
+
+.custom-file-input {
+    /* 定义自定义文件选择按钮的样式 */
+    background-color: #007bff;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.custom-file-input:hover {
+    /* 鼠标悬停时改变背景色 */
+    background-color: #0056b3;
+}
+
+#box {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto; /* 添加上下外边距 */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-height: 90vh; /* 限制最大高度 */
+    overflow-y: auto; /* 启用垂直滚动 */
+}
+
+@media screen and (max-width: 768px) {
+    #box {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #box {
+        width: 95%;
+    }
+}
+
+.qrcode-container input {
+    margin-right: 10px;
+}
+
+.qrcode-container button {
+    margin-right: 10px;
+}
+
+.custom-file-upload {
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 3px;
+    margin: 10px;
+    transition: background-color 0.3s ease; /* 添加过渡效果 */
+}
+
+.custom-file-upload:hover {
+    background-color: #0056b3;
+}
