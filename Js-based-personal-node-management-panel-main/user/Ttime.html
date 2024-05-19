@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ttime</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+        .container {
+            position: relative;
+            width: 100px;
+            height: 100px;
+        }
+        .progress-circle {
+            position: absolute;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background: conic-gradient(#4caf50 0% 0%, #d3d3d3 0%);
+            border-radius: 50%;
+            top: -300px; /* 使容器偏上300px */
+        }
+        .hourglass {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(to bottom, #000 50%, transparent 50%);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: rotate 1s linear infinite;
+        }
+        .hourglass:before,
+        .hourglass:after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50%;
+        }
+        .hourglass:before {
+            top: -40px;
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle at center, transparent 50%, #000 50%);
+        }
+        .hourglass:after {
+            bottom: -40px;
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle at center, #000 50%, transparent 50%);
+        }
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            50% {
+                transform: rotate(180deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="progress-circle" id="progressCircle"></div>
+<!--    <div class="hourglass"></div>-->
+</div>
+
+<script>
+    let progressCircle = document.getElementById('progressCircle');
+    let start = null;
+    let duration = 5000; // 5 seconds
+
+    function updateProgress(timestamp) {
+        if (!start) start = timestamp;
+        let progress = timestamp - start;
+        let progressPercentage = (progress / duration) * 100;
+        progressCircle.style.background = `conic-gradient(#4caf50 0% ${progressPercentage}%, #d3d3d3 ${progressPercentage}% 100%)`;
+
+        if (progress < duration) {
+            requestAnimationFrame(updateProgress);
+        } else {
+            window.location.href = 'index.html';
+        }
+    }
+
+    requestAnimationFrame(updateProgress);
+</script>
+
+</body>
+</html>
