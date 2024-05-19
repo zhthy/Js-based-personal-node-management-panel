@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>节点管理控制台</title>
+    <script src="../js/qrcodegen.js"></script>
+    <script src="../js/add.js"></script>
+    <link rel="stylesheet" href="../css/user_style.css">
+    <style>
+        .qrcode-container {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <button onclick="addQRCode()">添加节点</button>
+        <button onclick="removeQRCode()">删除最后一个节点</button>
+        <button onclick="subscribeAllNodes()">一键订阅所有节点</button>
+        <p>节点数据处理</p>
+        <button onclick="saveQRData()">保存数据</button>
+        <label for="fileInput" class="custom-file-input">选择文件</label>
+        <input type="file" id="fileInput" accept=".txt" onchange="loadQRData(event)" style="display: none;">        
+        <div id="qrcodeContainer"></div>
+    </div>
+</body>
+</html>
